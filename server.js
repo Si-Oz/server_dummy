@@ -30,7 +30,7 @@ app.prepare().then(() => {
     else {
       handle(req, res, parsedUrl)
     }
-  }).listen(port, (err) => {
+  }).listen(process.env.PORT || port, (err) => {
     if (err) throw err
     console.log(`> Ready on http://${hostname}:${port}`)
   })
