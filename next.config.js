@@ -1,7 +1,7 @@
-
+const isProd = process.env.NODE_ENV === 'production'
 module.exports = {
   reactStrictMode: true,
-  assetPrefix:  'https://simon-testing-environment.myshopify.com/a/1',
+  assetPrefix: isProd ? 'https://simon-testing-environment.myshopify.com/' : '',
   async headers() {
     return [
       {

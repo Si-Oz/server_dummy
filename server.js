@@ -18,7 +18,12 @@ app.prepare().then(() => {
     const parsedUrl = parse(req.url, true)
     const { pathname, query } = parsedUrl
 
-    res.setHeader('Content-type', 'application/liquid')
+ 
+      // res.setHeader('Content-type', 'application/liquid')
+ 
+
+  
+    
 
     if (pathname === '/a') {
       app.render(req, res, '/a', query)
