@@ -35,7 +35,7 @@ const Card = ({heading, articles }) => {
                 articleTitles.push(element.title)
                 articleData.push(
                         <li key={element.id}>
-                                <Link href={`article/${element.id}`}>{element.title}</Link>
+                                <Link href={`1/article/${element.id}`}>{element.title}</Link>
                         </li>
                 )
             } 
