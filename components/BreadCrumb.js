@@ -51,7 +51,7 @@ function BreadCrumb() {
 
     return (
         <div className='breadcrumb-container'>
-            <Link href={"/"}>Customer Care &nbsp; &nbsp; &gt; &nbsp; &nbsp;  </Link>
+            <Link href={"/a/1"}>Customer Care &nbsp; &nbsp; &gt; &nbsp; &nbsp;  </Link>
             {breadcrumb}
         </div>
     )
