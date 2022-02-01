@@ -5,7 +5,10 @@ import { useState, useEffect } from 'react';
 import Announcement from '../components/Announcement';
 
 export default function Home({articles}) {
-
+  const router = useRouter()
+  const [errorBanner, setErrorBanner] = useState('')
+  const [searchTerm, setSearchTerm] = useState('')
+  const [searchError, setSearchError] = useState(false)
   const renderCards = (headings, articles) => {
     let articleProps = []
     let cards = []
@@ -58,10 +61,10 @@ export default function Home({articles}) {
   }
 
   async function searchQuery(query){
-    let data = await fetch(`/api/search/${query}`)
-    let dataArticles = await data.json()
-    let articles = dataArticles.articles.results
-    return articles
+    // let data = await fetch(`/api/search/${query}`)
+    // let dataArticles = await data.json()
+    // let articles = dataArticles.articles.results
+    // return articles
   }
 
   const headingsList = returnHeadings(articles)
@@ -83,7 +86,7 @@ export default function Home({articles}) {
                 <input type="text" value={searchTerm} id="searchTerm" placeholder="Search For Help..." onChange={formHandler}></input>
                 <input type = "submit" value ="" className='submit'/>
                 </label>
-            </form>   
+            </form> 
         </div>
 
       <div className='grid-container'>
