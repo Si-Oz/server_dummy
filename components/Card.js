@@ -16,6 +16,7 @@ const Card = ({heading, articles }) => {
     const router = useRouter()
 
     function moveToCategory(e){
+        console.log(e)
         router.push(`/category/${e.target.value}`)    
     }
 
