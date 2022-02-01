@@ -1,7 +1,7 @@
 
 module.exports = {
   reactStrictMode: true,
-  assetPrefix: isProd ? 'https://simon-testing-environment.myshopify.com/' : '',
+  assetPrefix:  'https://simon-testing-environment.myshopify.com/',
   async headers() {
     return [
       {
