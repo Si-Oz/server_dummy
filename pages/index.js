@@ -70,6 +70,10 @@ export default function Home({articles}) {
   const headingsList = returnHeadings(articles)
   const articlesList = returnArticles(articles)
   const cardDisplay = renderCards(headingsList , articlesList)
+  function goToContact(){
+    location.assign("https://www.ozhairandbeauty.com/pages/contact-us");
+  }
+
 
   return (
     <div>
@@ -88,7 +92,8 @@ export default function Home({articles}) {
                 </label>
             </form> 
         </div>
-
+        {errorBanner}      
+        <Announcement heading={""} text={"a banner for making announcements"}/>     
       <div className='grid-container'>
       {cardDisplay}
       <div>
@@ -99,7 +104,7 @@ export default function Home({articles}) {
           </legend>
           </div>
         </div>
-        <button className='contact-button'>
+        <button className='contact-button' onClick={goToContact}>
             Contact Us Now
           </button>
       </div>
