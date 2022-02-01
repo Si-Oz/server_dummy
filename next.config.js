@@ -1,11 +1,11 @@
 const isProd = process.env.NODE_ENV === 'production'
-console.log(isProd)
- 
+
 module.exports = {
   reactStrictMode: true,
   assetPrefix: isProd ? 'https://simon-testing-environment.myshopify.com/' : '',
+  
   async headers() {
-    return ( isProd ? [
+    return [
       {
         source: '/:path*',
         headers: [
@@ -15,11 +15,7 @@ module.exports = {
           },
         ],
       },
-    ] : []
-
-    )
-    
-    
+    ]
   },
 }
 
