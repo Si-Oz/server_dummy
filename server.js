@@ -19,7 +19,7 @@ app.prepare().then(() => {
     const { pathname, query } = parsedUrl
 
  
-      // res.setHeader('Content-type', 'application/liquid')
+    res.setHeader('Content-type', 'application/liquid')
  
 
   

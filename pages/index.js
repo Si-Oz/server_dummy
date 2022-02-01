@@ -42,6 +42,28 @@ export default function Home({articles}) {
     return headingsArray
   }
 
+  function formHandler(e) {
+    setSearchTerm(e.target.value)
+  }
+
+  function handleSubmit(event){
+    let query = event.target.searchTerm.value
+    searchQuery(query).then((response) =>{
+        router.push(`/search/${query}`)
+    }).catch((err) =>{
+      console.log(err)
+      setSearchError(true)
+    })
+    event.preventDefault();
+  }
+
+  async function searchQuery(query){
+    let data = await fetch(`/api/search/${query}`)
+    let dataArticles = await data.json()
+    let articles = dataArticles.articles.results
+    return articles
+  }
+
   const headingsList = returnHeadings(articles)
   const articlesList = returnArticles(articles)
   const cardDisplay = renderCards(headingsList , articlesList)
@@ -50,12 +72,18 @@ export default function Home({articles}) {
     <div>
       <Head>
         <title>Oz support and FAQ</title>
-        <meta name="description" content="Customer Support afor Oz Hair and Beauty" />
+        <meta name="description" content="Customer Support for Oz Hair and Beauty" />
         <link href="https://cdn.shopify.com/s/files/1/1588/9573/t/387/assets/theme.scss.css?v=6533443260166724196" rel="stylesheet"/>
         <link rel="icon" href="https://cdn.shopify.com/s/files/1/1588/9573/t/387/assets/theme.scss.css?v=6533443260166724196" />
       </Head>
       <div className='header header_mobile'>
-        
+      <form onSubmit={handleSubmit}>
+                <label>
+                <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" aria-hidden="true"><path filrule="#2D2D2D" fillrule="evenodd" d="M21.5 12a8.5 8.5 0 016.49 13.989L32 30l-2 2-4.18-4.179A8.5 8.5 0 1121.5 12zm0 2a6.5 6.5 0 100 13 6.5 6.5 0 000-13z"></path></svg>
+                <input type="text" value={searchTerm} id="searchTerm" placeholder="Search For Help..." onChange={formHandler}></input>
+                <input type = "submit" value ="" className='submit'/>
+                </label>
+            </form>   
         </div>
 
       <div className='grid-container'>
